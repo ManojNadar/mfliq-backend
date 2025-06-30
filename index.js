@@ -49,6 +49,25 @@ const app = express();
 dotenv.config();
 app.use(express.json());
 app.use(cors());
+
+const allowedOrigins = [
+  "http://localhost:3000", // local React dev server
+  "https://your-frontend.vercel.app", // later for production
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true, // only if you use cookies/auth
+  })
+);
+
 app.use(morgan("dev"));
 
 app.get("/", (req, res) => {
