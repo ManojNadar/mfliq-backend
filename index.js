@@ -48,7 +48,6 @@ import { SingleProduct } from "./Controllers/SingleProduct.js";
 const app = express();
 dotenv.config();
 app.use(express.json());
-app.use(cors());
 
 const allowedOrigins = [
   "http://localhost:3000", // local React dev server
