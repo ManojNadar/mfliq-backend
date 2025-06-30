@@ -51,7 +51,7 @@ app.use(express.json());
 
 const allowedOrigins = [
   "http://localhost:3000", // local React dev server
-  "https://your-frontend.vercel.app", // later for production
+  "https://manojndr-mfliq-frontend.vercel.app", // later for production
 ];
 
 app.use(
